@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "数独助手",
+  "version": "1.0",
+  "description": "数独谜题网站增强工具",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://cn.sudokupuzzle.org/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://cn.sudokupuzzle.org/*"],
+      "js": ["content.js"]
+    }
+  ]
+} 

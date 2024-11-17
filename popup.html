@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 200px;
+      padding: 10px;
+    }
+    button {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+      cursor: pointer;
+    }
+    #floatingButton {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+      background-color: #1890ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <button id="solvePuzzle">解决当前数独</button>
+  <button id="highlightNumbers">高亮相同数字</button>
+  <button id="floatingButton">固定按钮</button>
+  <script src="popup.js"></script>
+</body>
+</html> 
