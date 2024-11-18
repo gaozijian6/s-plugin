@@ -56,26 +56,23 @@ window.addEventListener("load", () => {
     
     navigator.clipboard.writeText(`'${puzzle}'`);
 
-    // 获取日期输入框
-    const dateInput = iframeDocument.querySelector("#5421");
-    
-    // 触发日期选择器
-    const event = new Event('focus');
-    dateInput?.dispatchEvent(event);
-    
-    // 等待日期选择器加载
-    setTimeout(() => {
-      // 获取下一天按钮并点击
-      const nextDayBtn = document.querySelector(".WdateDiv .dpButton[title='下月']");
-      nextDayBtn?.click();
-      
-      // 点击确定按钮
-      const okBtn = document.querySelector(".WdateDiv .dpButton[value='确定']");
-      okBtn?.click();
-    }, 100);
+    const input = iframeDocument.querySelector(".Wdate");
+    const mouseEvent = new MouseEvent('click', {
+      view: window,
+      bubbles: true,
+      cancelable: true
+    });
+    input.dispatchEvent(mouseEvent);
 
-    const answerButton = iframeDocument.querySelector('[value="答案"]');
-    answerButton?.click();
+    // const WdateDiv = iframeDocument.querySelector(".WdateDiv");
+    // const WdayTable = WdateDiv.querySelector(".WdayTable");
+    // const tds = WdayTable.querySelectorAll(".WwdayOn, .WdayOn");
+    // console.log(tds);
+
+    // const answerButton = iframeDocument.querySelector('[value="答案"]');
+    // answerButton?.click();
+
+    
   });
 
   button2.addEventListener('click', () => {
