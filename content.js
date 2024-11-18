@@ -55,6 +55,27 @@ window.addEventListener("load", () => {
     });
     
     navigator.clipboard.writeText(`'${puzzle}'`);
+
+    // 获取日期输入框
+    const dateInput = iframeDocument.querySelector("#5421");
+    
+    // 触发日期选择器
+    const event = new Event('focus');
+    dateInput?.dispatchEvent(event);
+    
+    // 等待日期选择器加载
+    setTimeout(() => {
+      // 获取下一天按钮并点击
+      const nextDayBtn = document.querySelector(".WdateDiv .dpButton[title='下月']");
+      nextDayBtn?.click();
+      
+      // 点击确定按钮
+      const okBtn = document.querySelector(".WdateDiv .dpButton[value='确定']");
+      okBtn?.click();
+    }, 100);
+
+    const answerButton = iframeDocument.querySelector('[value="答案"]');
+    answerButton?.click();
   });
 
   button2.addEventListener('click', () => {
@@ -114,6 +135,10 @@ window.addEventListener("load", () => {
     }
     solution = row1 + row2 + row3 + row4 + row5 + row6 + row7 + row8 + row9;
     navigator.clipboard.writeText(`'${solution}'`);
+
+    setTimeout(() => {
+      window.close();
+    }, 100);
   });
 
 });
