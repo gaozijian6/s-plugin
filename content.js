@@ -52,12 +52,14 @@ window.addEventListener("load", () => {
   document.body.appendChild(button1);
   document.body.appendChild(button2);
   document.body.appendChild(button3);
-  
+
   // 点击按钮时获取并打印数独
   button1.addEventListener("click", () => {
-    localStorage.clear();
     const iframe = document.querySelector("#f1");
     const iframeDocument = iframe.contentDocument;
+
+    localStorage.clear();
+
     const table = iframeDocument.querySelector(".sd");
     const tbody = table.firstElementChild;
     const trs = tbody.querySelectorAll("tr");
@@ -80,7 +82,7 @@ window.addEventListener("load", () => {
     const Wdate = iframeDocument.querySelector(".Wdate");
     date = Wdate.value;
     date = date.replace("年", "-").replace("月", "-").replace("日", "");
-    date += "a";
+    date += "b";
 
     const answerButton = iframeDocument.querySelector('[value="答案"]');
     answerButton?.click();
@@ -160,12 +162,17 @@ window.addEventListener("load", () => {
       date:'${date}',
     },`;
     navigator.clipboard.writeText(textToCopy);
-    const alertMessage = document.createElement('div');
-    alertMessage.textContent = '复制成功';
-    alertMessage.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;color:#fff;padding:10px 20px;border-radius:4px;z-index:9999';
+    const alertMessage = document.createElement("div");
+    alertMessage.textContent = "复制成功";
+    alertMessage.style.cssText =
+      "position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;color:#fff;padding:10px 20px;border-radius:4px;z-index:9999";
     document.body.appendChild(alertMessage);
     setTimeout(() => {
       document.body.removeChild(alertMessage);
     }, 500);
+    const iframe = document.querySelector("#f1");
+    const iframeDocument = iframe.contentDocument;
+    const input = iframeDocument.querySelector(".Wdate");
+    input.focus();
   });
 });
