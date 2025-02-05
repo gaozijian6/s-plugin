@@ -80,9 +80,28 @@ window.addEventListener("load", () => {
     localStorage.setItem("puzzle", puzzle);
 
     const Wdate = iframeDocument.querySelector(".Wdate");
+    const difficulties = iframeDocument.querySelector(".selected");
+    let word = "";
+    switch (difficulties.innerHTML) {
+      case "入门":
+        word = "a";
+        break;
+      case "初级":
+        word = "b";
+        break;
+      case "中级":
+        word = "c";
+        break;
+      case "高级":
+        word = "d";
+        break;
+      case "骨灰级":
+        word = "e";
+        break;
+    }
     date = Wdate.value;
     date = date.replace("年", "-").replace("月", "-").replace("日", "");
-    date += "b";
+    date += word;
 
     const answerButton = iframeDocument.querySelector('[value="答案"]');
     answerButton?.click();
