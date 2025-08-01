@@ -5,13 +5,18 @@
   "description": "数独谜题网站增强工具",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "storage",
+    "downloads"
   ],
   "host_permissions": [
     "https://cn.sudokupuzzle.org/*"
   ],
   "action": {
     "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
