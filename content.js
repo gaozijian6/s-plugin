@@ -272,22 +272,14 @@ window.addEventListener("load", () => {
     padding: 10px 20px;
     cursor: pointer;
     z-index: 10000;
+    width: 200px;
+    height: 200px;
   `;
 
   const button2 = document.createElement("button");
   button2.innerHTML = "复制答案";
   button2.style.cssText = `
-    position: fixed;
-    right: 20px;
-    top: 55%;
-    transform: translateY(-50%);
-    background-color: #1890ff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    z-index: 10000;
+  display: none;
   `;
   let date = "";
 
@@ -438,7 +430,7 @@ window.addEventListener("load", () => {
         }
         
         if (response.success) {
-          showMessage(`${difficultyLevel}数据已追加到${targetFile}！`, 'success');
+          showMessage(`${date}`, 'success');
         } else {
           showMessage('文件操作失败: ' + response.error, 'error');
         }
